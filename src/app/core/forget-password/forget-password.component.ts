@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-forgot-password',
+  selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
   styleUrls: ['./forget-password.component.css']
 })
-export class ForgotPasswordComponent {
-  email = '';
-  message = '';
+export class ForgetPasswordComponent implements OnInit {
 
-  constructor(private http: HttpClient) {}
+  constructor() { }
 
-  onSubmit() {
-    this.http.post<any>('http://localhost:5000/api/auth/forgot-password', { email: this.email })
-      .subscribe({
-        next: (res) => this.message = res.message,
-        error: (err) => this.message = 'Error sending reset email.'
-      });
+  ngOnInit(): void {
   }
+
 }
