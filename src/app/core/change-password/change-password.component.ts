@@ -8,7 +8,7 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent {
-  username = 'ruturaj'; 
+  username = 'admin'; 
   oldPassword = '';
   newPassword = '';
   confirmPassword = '';
@@ -18,10 +18,10 @@ export class ChangePasswordComponent {
   constructor(private authService: AuthService) {}
 
   onSubmit() {
-    if (this.newPassword !== this.confirmPassword) {
-      this.message = 'New password and confirm password do not match.';
-      return;
-    }
+    // if (this.newPassword !== this.confirmPassword) {
+    //   this.message = 'New password and confirm password do not match.';
+    //   return;
+    // }
 
     this.isLoading = true;
 
