@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +11,7 @@ import { PagenotfoundComponent } from './core/pagenotfound/pagenotfound.componen
 import { ResetPasswordComponent } from './core/reset-password/reset-password.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     ForgotPasswordComponent,
     PagenotfoundComponent,
-    ResetPasswordComponent,
+    ResetPasswordComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
