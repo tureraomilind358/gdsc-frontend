@@ -1,32 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
-import { HeaderComponent } from './core/components/header/header.component';
 import { SidebarComponent } from './core/components/sidebar/sidebar.component';
-
-import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ChangePasswordComponent } from './core/change-password/change-password.component';
 import { AuthService } from './core/services/auth.service';
 import { ThemeService } from './core/services/theme.service';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { SharedModule } from './shared/shared.module'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,           
     HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
     RouterModule,
+    AppRoutingModule,
+    SharedModule           
   ],
   providers: [
     AuthService,
@@ -35,4 +33,4 @@ import { ThemeService } from './core/services/theme.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
