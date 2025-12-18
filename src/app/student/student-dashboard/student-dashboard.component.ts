@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, Role } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -14,6 +15,13 @@ export class StudentDashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.auth.role$.subscribe(role => {
+      this.role = role;
+    });
+  }
+
+  toggleSidebar() {
+    this.isSidebarCollapsed = !this.isSidebarCollapsed;
   }
 
   toggleSidebar() {

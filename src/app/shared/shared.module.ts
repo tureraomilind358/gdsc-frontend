@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 
-// Import all shared components
+// Shared Components
 import { ActivityTableComponent } from './components/activity-table/activity-table.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
+import { HeaderComponent } from '../core/components/header/header.component'; 
 
 import { SidebarComponent } from '../core/components/sidebar/sidebar.component';
 import { DashboardCardsComponent } from './components/dashboard-cards/dashboard-cards.component';
@@ -48,4 +49,4 @@ import { HeaderComponent } from './components/header/header.component';
   
   ]
 })
-export class SharedModule {}
+export class SharedModule { }
