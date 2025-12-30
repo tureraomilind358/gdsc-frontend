@@ -1,7 +1,7 @@
 // src/app/admin/admin.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule,  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component'; 
@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { AdminDashboardComponent } from './dashboard/dashboard.component';
 
 import { SidebarComponent } from '../shared/components/sidebar/sidebar.component';
+import { CenterListComponent } from './components/center-list/center-list.component';
 
 
 @NgModule({
@@ -28,18 +29,19 @@ import { SidebarComponent } from '../shared/components/sidebar/sidebar.component
     AdminTeachersComponent,
     CenterFormComponent,
     AdminDashboardComponent,
+    CenterListComponent,
    
-    SidebarComponent,
+    
        
     
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ,
+   FormsModule ,
     MatDialogModule,
     AdminRoutingModule,
-    SharedModule,
+   SharedModule,
     RouterModule,
     
   ],
