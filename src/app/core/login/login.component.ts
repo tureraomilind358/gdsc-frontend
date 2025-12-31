@@ -41,21 +41,18 @@ export class LoginComponent {
 
 setTimeout(() => {
   if (roles.includes('ROLE_ADMIN')) {
-    this.router.navigate(['/admin']);
-  } 
-  else if (roles.includes('ROLE_CENTER')) {
+    this.router.navigate(['/admin/dashboard']);
+  } else if (roles.includes('ROLE_CENTER')) {
     this.router.navigate(['/center']);
-  } 
-  else if (roles.includes('ROLE_TEACHER')) {
+  } else if (roles.includes('ROLE_TEACHER')) {
     this.router.navigate(['/teacher']);
-  } 
-  else if (roles.includes('ROLE_STUDENT')) {
+  } else if (roles.includes('ROLE_STUDENT')) {
     this.router.navigate(['/student']);
-  } 
-  else {
-    this.router.navigate(['/']);
+  } else {
+    this.router.navigate(['/login']);
   }
-}, 800);
+}, 500);
+
 
 
         

@@ -1,0 +1,10 @@
+<div class="container" [ngClass]="selectedRole">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <app-dashboard-header (roleChange)="changeRole($event)" (themeToggle)="toggleTheme()">
+    </app-dashboard-header>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

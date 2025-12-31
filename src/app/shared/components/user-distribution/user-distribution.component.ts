@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { Chart } from 'chart.js';
 
 
 @Component({
@@ -10,21 +11,21 @@ export class UserDistributionComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
 
-  //   new Chart('userDistributionChart', {
-  //     type: 'pie',
-  //     data: {
-  //       labels: ['Admin', 'Teachers', 'Students'],
-  //       datasets: [{
-  //         data: [10, 30, 60],
-  //         borderWidth: 2,
-  //         backgroundColor: [
-  //           '#7209b7',
-  //           '#ff9e00',
-  //           '#06d6a0'
-  //         ]
-  //       }]
-  //     }
-  //   });
+    new Chart('userDistributionChart', {
+      type: 'pie',
+      data: {
+        labels: ['Admin', 'Teachers', 'Students'],
+        datasets: [{
+          data: [10, 30, 60],
+          borderWidth: 2,
+          backgroundColor: [
+            '#7209b7',
+            '#ff9e00',
+            '#06d6a0'
+          ]
+        }]
+      }
+    });
 
   }
 

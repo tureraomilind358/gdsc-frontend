@@ -1,24 +1,45 @@
+// src/app/core/guards/role.guard.ts
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class RoleGuard implements CanActivate {
-  constructor(private auth: AuthService, private router: Router) {}
+@Injectable({ providedIn: 'root' })
+export class RoleGuard implements CanActivate, CanActivateChild {
 
-  canActivate(route: ActivatedRouteSnapshot): boolean {
-    const allowed: string[] = route.data['roles'] || [];
-    // if no roles specified allow
-    if (!allowed || allowed.length === 0) return true;
+  constructor(private router: Router) {}
 
-    if (this.auth.hasAnyRole(allowed)) {
-      return true;
-    } else {
-      // optional: redirect to a "not authorized" page or to login
-      this.router.navigate(['/auth/login']);
+  private checkRole(route: ActivatedRouteSnapshot): boolean {
+    const userStr = localStorage.getItem('user');
+    if (!userStr) {
+      this.router.navigate(['/login']);
       return false;
     }
+
+    let user;
+    try {
+      user = JSON.parse(userStr);
+    } catch {
+      this.router.navigate(['/login']);
+      return false;
+    }
+
+    // Roles from route or fallback to parent
+    const allowedRoles: string[] = route.data['roles'] || route.parent?.data['roles'] || [];
+    const hasRole = Array.isArray(user.roles) && user.roles.some((r: string) => allowedRoles.includes(r));
+
+    if (!hasRole) {
+      // Redirect unauthorized users to login
+      this.router.navigate(['/login']);
+      return false;
+    }
+
+    return true;
+  }
+
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    return this.checkRole(route);
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot): boolean {
+    return this.checkRole(route);
   }
 }

@@ -16,8 +16,10 @@ import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { AuthService } from './core/services/auth.service';
 import { ThemeService } from './core/services/theme.service';
-import { AuthInterceptor } from './core/interceptors/auth.interceptor';
-import { SharedModule } from './shared/shared.module'; 
+import { BrowserModule } from '@angular/platform-browser';
+import { CourseCategoryFormComponent } from './components/course-category-form/course-category-form/course-category-form.component';
+import { UserComponent } from './admin/components/users/users.component';
+
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { SharedModule } from './shared/shared.module';
     LoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    RegisterComponent
+    RegisterComponent,
+    CourseCategoryFormComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

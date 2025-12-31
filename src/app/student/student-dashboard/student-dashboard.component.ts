@@ -7,6 +7,7 @@ import { AuthService, Role } from '../../core/services/auth.service';
   styleUrls: ['./student-dashboard.component.css']
 })
 export class StudentDashboardComponent implements OnInit {
+  [x: string]: any;
 
   darkMode = false;
   isSidebarCollapsed = false;
@@ -15,17 +16,10 @@ export class StudentDashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.auth.role$.subscribe(role => {
+    this.auth.role$.subscribe((role: string) => {
       this.role = role;
     });
   }
 
-  toggleSidebar() {
-    this.isSidebarCollapsed = !this.isSidebarCollapsed;
-  }
-
-  toggleSidebar() {
-    this.isSidebarCollapsed = !this.isSidebarCollapsed;
-  }
 
 }
