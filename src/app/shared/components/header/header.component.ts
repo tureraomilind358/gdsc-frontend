@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard-header',
+  selector: 'app-dashboards-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

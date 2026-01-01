@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { StudentRoutingModule } from './student-routing.module';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
-import { SharedModule } from '../shared/shared.module'; 
+import { share } from 'rxjs/operators';
+
+
 
 @NgModule({
   declarations: [
@@ -13,7 +15,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     StudentRoutingModule,
-    SharedModule,
+    SharedModule
   
   ]
 })
