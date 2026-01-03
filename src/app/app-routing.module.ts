@@ -12,6 +12,13 @@ import { StudentGuard } from './core/guards/student.guard';
 import { ForgotPasswordComponent } from './core/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './core/reset-password/reset-password.component';
 import { RegisterComponent } from './core/register/register.component';
+import { AnalyticsComponent } from './admin/analytics/analytics.component';
+import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
+import { CoursesComponent } from './admin/courses/courses.component';
+import { HelpComponent } from './admin/help/help.component';
+import { ScheduleComponent } from './admin/schedule/schedule.component';
+import { SettingsComponent } from './admin/settings/settings.component';
+import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
   // Public
@@ -23,7 +30,6 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-  // Feature modules
   {
     path: 'admin',
     canActivate: [AuthGuard, AdminGuard],
@@ -40,7 +46,17 @@ const routes: Routes = [
     loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
   },
 
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'login' },
+    { path: 'admin/dashboard', component: DashboardComponent },
+  { path: 'admin/users', component: UsersComponent },
+  { path: 'admin/courses', component: CoursesComponent },
+  { path: 'admin/schedule', component: ScheduleComponent },
+  { path: 'admin/analytics', component: AnalyticsComponent },
+  { path: 'admin/settings', component: SettingsComponent },
+  { path: 'admin/help', component: HelpComponent },
+  { path: '', redirectTo: 'admin/dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: 'admin/dashboard' }
+
 ];
 
 @NgModule({

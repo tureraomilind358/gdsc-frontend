@@ -1,0 +1,93 @@
+<!-- DASHBOARD CARDS -->
+<div class="dashboard-cards">
+  <div class="card">
+    <div class="card-icon"><i class="fas fa-users"></i></div>
+    <h3>Total Users</h3>
+    <p>All platform users</p>
+    <div class="card-value">{{ data.users }}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon"><i class="fas fa-book-open"></i></div>
+    <h3>Courses</h3>
+    <p>Available courses</p>
+    <div class="card-value">{{ data.courses }}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+    <h3>Performance</h3>
+    <p>Overall system performance</p>
+    <div class="card-value">{{ data.performance }}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon"><i class="fas fa-tasks"></i></div>
+    <h3>Pending Tasks</h3>
+    <p>Tasks requiring attention</p>
+    <div class="card-value">{{ data.tasks }}</div>
+  </div>
+</div>
+
+<!-- CHARTS -->
+<div class="charts">
+  <div class="chart-container">
+    <h3>Monthly Progress</h3>
+    <canvas id="monthlyChart"></canvas>
+  </div>
+
+  <div class="chart-container">
+    <h3>User Distribution</h3>
+    <canvas id="userChart"></canvas>
+  </div>
+</div>
+
+<!-- RECENT ACTIVITY TABLE -->
+<div class="dashboard-table">
+  <h3>Recent Activity</h3>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <table *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Activity</th>
+        <th>User</th>
+        <th>Time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let a of activities">
+        <td>{{ a.title }}</td>
+        <td>{{ a.user }}</td>
+        <td>{{ a.time }}</td>
+        <td>
+          <span class="status"
+                [ngClass]="a.status === 'Completed' ? 'active' : 'pending'">
+            {{ a.status }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div class="activity-feed">
+  <h3>Recent Notifications</h3>
+
+  <div class="activity-item" *ngFor="let n of notifications">
+    <div class="activity-icon"
+         [style.background]="n.color">
+      <i [class]="n.icon"></i>
+    </div>
+
+    <div class="activity-content">
+      <h4>{{ n.title }}</h4>
+      <p>{{ n.message }}</p>
+      <div class="activity-time">{{ n.time }}</div>
+    </div>
+  </div>
+</div>

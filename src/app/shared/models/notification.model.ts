@@ -3,7 +3,6 @@ export interface NotificationItem {
   message: string;
   time: string;
   read: boolean;
-    // ADD THESE
   color?: string;
   icon?: string;
 }

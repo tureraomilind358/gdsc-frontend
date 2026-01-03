@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
-import { AuthService, Role } from '../../services/auth.service';
-import { ThemeService } from '../../services/theme.service';
-import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -9,40 +7,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+onRoleChange() {
+throw new Error('Method not implemented.');
+}
   @Output() hamburgerClick = new EventEmitter<void>();
+  @Output() roleChange = new EventEmitter<string>();
+  @Output() logoutClick = new EventEmitter<void>();
 
-  roles: Role[] = ['admin', 'center', 'teacher', 'students'];
-  selected: Role = 'admin';
+  roles: string[] = ['admin', 'student', 'teacher'];
+
+
+  roleControl = new FormControl('admin');
+
   dark = false;
-
-  constructor(
-    private auth: AuthService,
-    private theme: ThemeService,
-    private router: Router
-  ) {}
+selected: any;
 
   ngOnInit() {
-
-    this.auth.role$.subscribe((r: Role) => {
-      this.selected = r;
+  
+    this.roleControl.valueChanges.subscribe(value => {
+      console.log('Role changed to:', value);
+      this.roleChange.emit(value);
     });
-
-    this.dark = this.theme.isDark();
-  }
-
-  onRoleChange() {
-    this.auth.setRole(this.selected);
-    this.router.navigate([`/dashboard/${this.selected}`]);
   }
 
   toggleTheme() {
     this.dark = !this.dark;
-    this.theme.setDark(this.dark);
   }
 
   logout() {
-    this.auth.logout();
-    this.router.navigate(['/auth/login']);
+    this.logoutClick.emit();
   }
 }

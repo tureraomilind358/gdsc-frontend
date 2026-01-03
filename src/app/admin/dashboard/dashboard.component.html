@@ -1,24 +1,25 @@
-
 <app-dashboard-sidebar> </app-dashboard-sidebar>
 <div class="content">
   <app-dashboard-header></app-dashboard-header>
- <div class="inner-page">
-  <app-dashboard-cards></app-dashboard-cards>
+  <div class="inner-page">
+    <app-dashboard-cards></app-dashboard-cards>
 
- 
 
-  <div class="panels">
-    <div class="card"><h3>Recent Activity</h3>
-      <app-activity-table [activities]="recentActivities"></app-activity-table>
+
+    <div class="panels">
+      <div class="card">
+        <h3>Recent Activity</h3>
+        <app-activity-table [activities]="recentActivities"></app-activity-table>
+      </div>
+      <div class="card">
+        <h3>Recent Notifications</h3>
+        <app-notification-list [notifications]="notifications"></app-notification-list>
+      </div>
+      <div>
+
+        <div class="two-col">
+          <app-month-progress></app-month-progress>
+          <app-user-distribution></app-user-distribution>
+        </div>
+      </div>
     </div>
-    <div class="card"><h3>Recent Notifications</h3>
-      <app-notification-list [notifications]="notifications"></app-notification-list>
-    </div>
- <div>
-  
-<div class="two-col">
-      <app-month-progress></app-month-progress>
-      <app-user-distribution></app-user-distribution>
-    </div>
-</div>
-  </div>

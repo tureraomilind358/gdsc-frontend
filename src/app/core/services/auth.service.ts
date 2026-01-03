@@ -9,6 +9,9 @@ export type Role = 'admin' | 'center' | 'teacher' | 'students';
   providedIn: 'root'
 })
 export class AuthService {
+  hasAnyRole(allowed: string[]) {
+    throw new Error('Method not implemented.');
+  }
 
   private baseUrl = 'http://localhost:8080/api/auth';
 

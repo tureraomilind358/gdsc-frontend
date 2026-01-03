@@ -1,21 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { TeacherRoutingModule } from './teacher-routing.module';
-import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
-import { TeacherStudentsComponent } from './teacher-students/teacher-students.component';
-import { SharedModule } from "src/app/shared/shared.module";
+import { SharedModule } from '../shared/shared.module';
 
+import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
 
 @NgModule({
-  declarations: [
-    TeacherDashboardComponent,
-    TeacherStudentsComponent
-  ],
+  declarations: [TeacherDashboardComponent],
   imports: [
     CommonModule,
-    TeacherRoutingModule,
     SharedModule
-]
+  ]
 })
 export class TeacherModule {}

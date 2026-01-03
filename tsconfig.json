@@ -1,9 +1,6 @@
-
 {
-  
   "compileOnSave": false,
   "compilerOptions": {
-      
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -21,16 +18,13 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    
-     
-    
+    ]
+
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-     
+    "strictTemplates": true
   }
 }

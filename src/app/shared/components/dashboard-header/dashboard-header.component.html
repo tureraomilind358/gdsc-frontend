@@ -1,0 +1,18 @@
+<div class="header">
+  <h2>Dashboard</h2>
+
+  <div class="user-controls">
+    <div class="role-selector">
+      <select [(ngModel)]="role" (change)="onRoleChange()">
+        <option value="admin">Admin Dashboard</option>
+        <option value="center">Center Dashboard</option>
+        <option value="teacher">Teacher Dashboard</option>
+        <option value="student">Student Dashboard</option>
+      </select>
+    </div>
+
+    <button class="theme-toggle" (click)="themeToggle.emit()">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+</div>
